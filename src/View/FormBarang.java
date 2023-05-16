@@ -6,6 +6,8 @@ package View;
 
 import Controller.ControllerBarang;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -44,7 +46,7 @@ public class FormBarang extends javax.swing.JFrame {
         stokTextField = new javax.swing.JTextField();
         pendapatanTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        keteranganTextField = new javax.swing.JTextArea();
+        keteranganTextArea = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
         cariBarangTextField = new javax.swing.JTextField();
@@ -115,10 +117,10 @@ public class FormBarang extends javax.swing.JFrame {
             }
         });
 
-        keteranganTextField.setColumns(20);
-        keteranganTextField.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        keteranganTextField.setRows(5);
-        jScrollPane1.setViewportView(keteranganTextField);
+        keteranganTextArea.setColumns(20);
+        keteranganTextArea.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        keteranganTextArea.setRows(5);
+        jScrollPane1.setViewportView(keteranganTextArea);
 
         dataTable.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -341,6 +343,9 @@ public class FormBarang extends javax.swing.JFrame {
 
     private void simpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanButtonActionPerformed
         // TODO add your handling code here:
+        controllerBarang.insert();
+        controllerBarang.isiTable();
+        controllerBarang.reset();
     }//GEN-LAST:event_simpanButtonActionPerformed
 
     private void ubahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahButtonActionPerformed
@@ -353,6 +358,7 @@ public class FormBarang extends javax.swing.JFrame {
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         // TODO add your handling code here:
+        controllerBarang.reset();
     }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
@@ -409,7 +415,7 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea keteranganTextField;
+    private javax.swing.JTextArea keteranganTextArea;
     private javax.swing.JTextField namaBarangTextField;
     private javax.swing.JTextField pendapatanTextField;
     private javax.swing.JButton resetButton;
@@ -421,5 +427,29 @@ public class FormBarang extends javax.swing.JFrame {
 
     public JTable getTabelData() {
         return dataTable;
+    }
+    
+    public JTextField getIdBarangTextField() {
+        return idBarangTextField;
+    }
+    
+    public JTextField getNamaBarangTextField() {
+        return namaBarangTextField;
+    }
+    
+    public JTextField getHargaTextField() {
+        return hargaTextField;
+    }
+    
+    public JTextField getStokTextField() {
+        return stokTextField;
+    }
+    
+    public JTextField getPendapatanTextField() {
+        return pendapatanTextField;
+    }
+    
+    public JTextArea getKeteranganTextArea() {
+        return keteranganTextArea;
     }
 }

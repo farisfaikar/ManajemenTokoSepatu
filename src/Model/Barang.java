@@ -93,6 +93,7 @@ public class Barang {
     public void setKeterangan(String keterangan) {
         this.keterangan = keterangan;
     }
+    
     private Integer id_barang;
     private String nama_barang;
     private Integer harga;

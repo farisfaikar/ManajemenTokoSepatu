@@ -14,4 +14,7 @@ import java.util.List;
 public interface IDAOBarang {
     // Read data
     public List<Barang> getAll();
+    // Insert data
+    public boolean insert(Barang barang);
+    
 }
