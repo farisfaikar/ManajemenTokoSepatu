@@ -362,6 +362,9 @@ public class FormBarang extends javax.swing.JFrame {
 
     private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
         // TODO add your handling code here:
+        controllerBarang.delete();
+        controllerBarang.isiTable();
+        controllerBarang.reset();
     }//GEN-LAST:event_hapusButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed

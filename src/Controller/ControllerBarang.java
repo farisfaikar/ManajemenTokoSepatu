@@ -40,9 +40,9 @@ public class ControllerBarang {
         
         boolean result = iBarang.insert(barang);
         if(result) 
-            JOptionPane.showConfirmDialog(null, "Input Berhasil");
+            JOptionPane.showConfirmDialog(null, "Input berhasil");
         else
-            JOptionPane.showMessageDialog(null, "Gagal/Data Duplikat");
+            JOptionPane.showMessageDialog(null, "Gagal/Data duplikat");
     }
     
     public void reset() {
@@ -75,7 +75,13 @@ public class ControllerBarang {
         barang.setKeterangan(String.valueOf(formBarang.getKeteranganTextArea().getText()));
         barang.setId_barang(Integer.valueOf(formBarang.getIdBarangTextField().getText()));
         iBarang.update(barang);
-        JOptionPane.showConfirmDialog(null, "Update Berhasil");
+        JOptionPane.showConfirmDialog(null, "Update berhasil");
+    }
+    
+    public void delete() {
+        Barang barang = new Barang();
+        iBarang.delete(Integer.parseInt(formBarang.getIdBarangTextField().getText()));
+        JOptionPane.showConfirmDialog(null, "Delete berhasil");
     }
     
     IDAOBarang iBarang;

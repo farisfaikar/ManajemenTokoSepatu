@@ -18,5 +18,7 @@ public interface IDAOBarang {
     public boolean insert(Barang barang);
     // Update data
     public void update(Barang barang);
+    // Delete data
+    public void delete(int id);
     
 }

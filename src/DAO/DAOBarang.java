@@ -65,7 +65,6 @@ public class DAOBarang implements IDAOBarang {
             statement.setInt(5, barang.getPendapatan());
             statement.setString(6, barang.getKeterangan());
             statement.execute();
-            System.out.println("Berhasil insert");
         } catch(SQLException e) {
             System.out.println("Gagal insert");
             result = false;
@@ -73,7 +72,6 @@ public class DAOBarang implements IDAOBarang {
         finally {
             try {
                 statement.close();
-                System.out.println("Berhasil close");
             } catch(SQLException ex) {
                 System.out.println("Gagal close");
                 result = false;
@@ -94,24 +92,42 @@ public class DAOBarang implements IDAOBarang {
             statement.setString(5, barang.getKeterangan());
             statement.setInt(6, barang.getId_barang());
             statement.execute();
-            System.out.println("Berhasil update");
         } catch(SQLException e) {
             System.out.println("Gagal update");
         }
         finally {
             try {
                 statement.close();
-                System.out.println("Berhasil close");
             } catch(SQLException ex) {
                 System.out.println("Gagal close");
             }
         }
     }
     
+    @Override
+    public void delete(int id) {
+                PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(strDelete);
+            statement.setInt(1, id);
+            statement.execute();
+        } catch(SQLException e) {
+            System.out.println("Gagal delete");
+        }
+        finally {
+            try {
+                statement.close();
+            } catch(SQLException ex) {
+                System.out.println("Gagal close");
+            }
+        }
+    }
+
     Connection con;
     
     // SQL Query
     String strRead = "select * from tabel_barang;";
     String strInsert = "insert into tabel_barang (id_barang, nama_barang, harga, stok, pendapatan, keterangan) values (?, ?, ?, ?, ?, ?);";
     String strUpdate = "update tabel_barang set nama_barang=?, harga=?, stok=?, pendapatan=?, keterangan=? where id_barang=?;";
+    String strDelete = "delete from tabel_barang where id_barang=?;";
 }
