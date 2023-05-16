@@ -355,6 +355,9 @@ public class FormBarang extends javax.swing.JFrame {
 
     private void ubahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahButtonActionPerformed
         // TODO add your handling code here:
+        controllerBarang.update();
+        controllerBarang.isiTable();
+        controllerBarang.reset();
     }//GEN-LAST:event_ubahButtonActionPerformed
 
     private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed

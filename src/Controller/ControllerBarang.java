@@ -30,7 +30,6 @@ public class ControllerBarang {
     }
     
     public void insert() {
-        // DEBUG Beda di Integer.valueOf
         Barang barang = new Barang();
         barang.setId_barang(Integer.valueOf(formBarang.getIdBarangTextField().getText()));
         barang.setNama_barang(String.valueOf(formBarang.getNamaBarangTextField().getText()));
@@ -66,6 +65,19 @@ public class ControllerBarang {
         formBarang.getPendapatanTextField().setText(String.valueOf(listBarang.get(row).getPendapatan()));
         formBarang.getKeteranganTextArea().setText(String.valueOf(listBarang.get(row).getStok()));
     }
+    
+    public void update() {
+        Barang barang = new Barang();
+        barang.setNama_barang(String.valueOf(formBarang.getNamaBarangTextField().getText()));
+        barang.setHarga(Integer.valueOf(formBarang.getHargaTextField().getText()));
+        barang.setStok(Integer.valueOf(formBarang.getStokTextField().getText()));
+        barang.setPendapatan(Integer.valueOf(formBarang.getPendapatanTextField().getText()));
+        barang.setKeterangan(String.valueOf(formBarang.getKeteranganTextArea().getText()));
+        barang.setId_barang(Integer.valueOf(formBarang.getIdBarangTextField().getText()));
+        iBarang.update(barang);
+        JOptionPane.showConfirmDialog(null, "Update Berhasil");
+    }
+    
     IDAOBarang iBarang;
     FormBarang formBarang;
     List<Barang> listBarang;

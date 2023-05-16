@@ -16,5 +16,7 @@ public interface IDAOBarang {
     public List<Barang> getAll();
     // Insert data
     public boolean insert(Barang barang);
+    // Update data
+    public void update(Barang barang);
     
 }

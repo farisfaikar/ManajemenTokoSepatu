@@ -65,9 +65,9 @@ public class DAOBarang implements IDAOBarang {
             statement.setInt(5, barang.getPendapatan());
             statement.setString(6, barang.getKeterangan());
             statement.execute();
-            System.out.println("Berhasil input");
+            System.out.println("Berhasil insert");
         } catch(SQLException e) {
-            System.out.println("Gagal input");
+            System.out.println("Gagal insert");
             result = false;
         }
         finally {
@@ -82,9 +82,36 @@ public class DAOBarang implements IDAOBarang {
         return result;
     }
     
+    @Override
+    public void update(Barang barang) {
+        PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(strUpdate);
+            statement.setString(1, barang.getNama_barang());
+            statement.setInt(2, barang.getHarga());
+            statement.setInt(3, barang.getStok());
+            statement.setInt(4, barang.getPendapatan());
+            statement.setString(5, barang.getKeterangan());
+            statement.setInt(6, barang.getId_barang());
+            statement.execute();
+            System.out.println("Berhasil update");
+        } catch(SQLException e) {
+            System.out.println("Gagal update");
+        }
+        finally {
+            try {
+                statement.close();
+                System.out.println("Berhasil close");
+            } catch(SQLException ex) {
+                System.out.println("Gagal close");
+            }
+        }
+    }
+    
     Connection con;
     
     // SQL Query
     String strRead = "select * from tabel_barang;";
     String strInsert = "insert into tabel_barang (id_barang, nama_barang, harga, stok, pendapatan, keterangan) values (?, ?, ?, ?, ?, ?);";
+    String strUpdate = "update tabel_barang set nama_barang=?, harga=?, stok=?, pendapatan=?, keterangan=? where id_barang=?;";
 }
