@@ -143,6 +143,11 @@ public class FormBarang extends javax.swing.JFrame {
             }
         });
         dataTable.getTableHeader().setReorderingAllowed(false);
+        dataTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(dataTable);
         if (dataTable.getColumnModel().getColumnCount() > 0) {
             dataTable.getColumnModel().getColumn(0).setResizable(false);
@@ -360,6 +365,12 @@ public class FormBarang extends javax.swing.JFrame {
         // TODO add your handling code here:
         controllerBarang.reset();
     }//GEN-LAST:event_resetButtonActionPerformed
+
+    private void dataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataTableMouseClicked
+        // TODO add your handling code here:
+        int row = dataTable.getSelectedRow();
+        controllerBarang.isiField(row);
+    }//GEN-LAST:event_dataTableMouseClicked
 
     /**
      * @param args the command line arguments

@@ -47,6 +47,8 @@ public class ControllerBarang {
     }
     
     public void reset() {
+        if (!formBarang.getIdBarangTextField().isEnabled())
+            formBarang.getIdBarangTextField().setEnabled(true);
         formBarang.getIdBarangTextField().setText("");
         formBarang.getNamaBarangTextField().setText("");
         formBarang.getHargaTextField().setText("");
@@ -55,6 +57,15 @@ public class ControllerBarang {
         formBarang.getKeteranganTextArea().setText("");
     }
     
+    public void isiField(int row) {
+        formBarang.getIdBarangTextField().setEnabled(false);
+        formBarang.getIdBarangTextField().setText(String.valueOf(listBarang.get(row).getId_barang()));
+        formBarang.getNamaBarangTextField().setText(String.valueOf(listBarang.get(row).getNama_barang()));
+        formBarang.getHargaTextField().setText(String.valueOf(listBarang.get(row).getHarga()));
+        formBarang.getStokTextField().setText(String.valueOf(listBarang.get(row).getStok()));
+        formBarang.getPendapatanTextField().setText(String.valueOf(listBarang.get(row).getPendapatan()));
+        formBarang.getKeteranganTextArea().setText(String.valueOf(listBarang.get(row).getStok()));
+    }
     IDAOBarang iBarang;
     FormBarang formBarang;
     List<Barang> listBarang;
